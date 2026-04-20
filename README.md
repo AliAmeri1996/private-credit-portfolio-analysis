@@ -126,6 +126,4 @@ If you want static images for a CV, PDF, or GitHub-friendly thumbnails, the note
 - Separate **FX hedged vs unhedged** European exposure if you can source consistent hedged series.
 - Write a one-page **memo PDF** summarizing methodology + one chart (common in PMG-style workflows).
 
----
 
-*Author note: This project is designed as an honest, public-data portfolio construction exercise for recruiting conversations—not as a substitute for proprietary manager research.*
