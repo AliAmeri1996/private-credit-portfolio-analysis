@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # European vs US Private Credit: A Portfolio Construction Analysis Using Public Market Proxies
 
 ## Overview
@@ -129,3 +130,6 @@ If you want static images for a CV, PDF, or GitHub-friendly thumbnails, the note
 ---
 
 *Author note: This project is designed as an honest, public-data portfolio construction exercise for recruiting conversations—not as a substitute for proprietary manager research.*
+=======
+# private-credit-portfolio-analysis
+>>>>>>> 0a5a372604ad34debf514971ce11491ac53169d1
