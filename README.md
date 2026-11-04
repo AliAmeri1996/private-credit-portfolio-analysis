@@ -9,14 +9,8 @@ The analysis is intentionally lightweight: daily returns, summary risk/return st
 
 ## Motivation
 
-Private markets investors routinely think about **regional sleeves**, **liquidity**, and **how sleeves fit together** inside a broader credit allocation. In an internship or early-career context, it is useful to show that you can:
 
-- frame a private-markets-relevant question clearly,
-- work with time-series data carefully,
-- translate returns into portfolio metrics,
-- communicate limitations honestly.
-
-Because **true private credit cashflows and marks** are not publicly available in a clean, downloadable format, this project uses **listed credit ETFs** as **transparent, practical proxies** for *directional* regional credit risk—not as a claim about private fund performance.
+Private credit data isn't publicly available, so this project uses listed high-yield ETFs as transparent proxies for regional credit risk. It asks a narrow portfolio question: does adding European exposure to a US credit allocation help?
 
 ## Research question
 
@@ -44,7 +38,7 @@ Sample: 26 Oct 2017 to 3 Aug 2026 (2,160 trading days), limited by when IHYG.L p
   - **USHY** — US-dollar broad high-yield corporate bond exposure (used here as a **US credit risk proxy**).
   - **IHYG.L** — euro high-yield corporate bond ETF, London listing (used here as a **European credit risk proxy**). Plain IHYG failed to download on Yahoo Finance, so the notebook fell back to this ticker.
 
-If either ticker fails to download (symbol changes, exchange restrictions, or API issues), the notebook documents **sensible alternatives** (for example **HYG** / **JNK** for US high yield; **IHYG.L** or other UCITS listings for Europe) and you should treat any substitution as a **different experiment**—update the README ticker line to match what you actually ran.
+If either ticker fails to download (symbol changes, exchange restrictions, or API issues), the notebook falls back to alternatives (**HYG** / **JNK** for US high yield; **IHYG.L** for Europe). **sensible alternatives** (for example **HYG** / **JNK** for US high yield; **IHYG.L** or other UCITS listings for Europe) and you should treat any substitution as a **different experiment**—update the README ticker line to match what you actually ran.
 
 **Critical honesty statement (read this carefully):**
 
@@ -124,7 +118,7 @@ Run **Cell → Run All**. The notebook adds the `src/` directory to `sys.path` a
 
 ## Figures (optional exports)
 
-If you want static images for a CV, PDF, or GitHub-friendly thumbnails, the notebook can save:
+The notebook saves the following charts to `figures/`:
 
 - `figures/normalized_prices.png` — rebased total-return level series
 - `figures/drawdowns.png` — underwater curves for each proxy
@@ -138,7 +132,7 @@ If you want static images for a CV, PDF, or GitHub-friendly thumbnails, the note
 - Separate **FX hedged vs unhedged** European exposure if you can source consistent hedged series.
 - Write a one-page **memo PDF** summarizing methodology + one chart (common in PMG-style workflows).
 
----
+
 
 *Author note: This project is designed as an honest, public-data portfolio construction exercise for recruiting conversations—not as a substitute for proprietary manager research.*
 
