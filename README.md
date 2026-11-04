@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # European vs US Private Credit: A Portfolio Construction Analysis Using Public Market Proxies
 
 ## Overview
@@ -35,12 +35,14 @@ The notebook answers this in a deliberately narrow, empirical way over a user-se
 
 No optimization, no machine learning, and no hidden datasets—just transparent arithmetic on public prices.
 
+Sample: 26 Oct 2017 to 3 Aug 2026 (2,160 trading days), limited by when IHYG.L price history starts.
+
 ## Data sources and proxy disclaimer
 
 - **Data provider**: Yahoo Finance via the `yfinance` Python package.
 - **Default tickers**:
   - **USHY** — US-dollar broad high-yield corporate bond exposure (used here as a **US credit risk proxy**).
-  - **IHYG** — euro-denominated high-yield corporate bond exposure (used here as a **European credit risk proxy**).
+  - **IHYG.L** — euro high-yield corporate bond ETF, London listing (used here as a **European credit risk proxy**). Plain IHYG failed to download on Yahoo Finance, so the notebook fell back to this ticker.
 
 If either ticker fails to download (symbol changes, exchange restrictions, or API issues), the notebook documents **sensible alternatives** (for example **HYG** / **JNK** for US high yield; **IHYG.L** or other UCITS listings for Europe) and you should treat any substitution as a **different experiment**—update the README ticker line to match what you actually ran.
 
@@ -73,15 +75,24 @@ private-credit-portfolio-analysis/
 | Drawdown series | Underwater equity curve from running peak |
 | Max drawdown | Minimum of the drawdown series |
 
+
+
 ## Key findings
 
-**Important:** The numbers below are **not** hard-coded “results.” They depend on your **start date**, **end date**, and **whether tickers downloaded successfully**. After you run the notebook, replace this bullet list with **your** outputs if you want the README to mirror a specific run.
+Results from the run in `notebooks/private_credit_analysis.ipynb` (rf = 0, 252 trading days):
 
-In most historical windows you will likely observe patterns along these lines (run the notebook to verify):
+| Portfolio | Ann. return | Ann. vol | Sharpe | Max drawdown |
+|---|---|---|---|---|
+| 100% US | 5.0% | 8.3% | 0.61 | -22.4% |
+| 70/30 US/Europe | 4.4% | 7.3% | 0.60 | -22.4% |
+| 50/50 | 3.9% | 7.0% | 0.57 | -22.4% |
+| 30/70 US/Europe | 3.5% | 6.9% | 0.51 | -23.2% |
+| 100% Europe | 2.9% | 7.2% | 0.39 | -25.6% |
 
-- **Correlation** between US and European high-yield proxies is usually **positive** (shared macro and risk-on/risk-off), but often **meaningfully below 1**, which is the basic prerequisite for **diversification benefits** from blending.
-- A **50/50** (or other interior mix) portfolio often lands **between** the two sleeves on realized return, with **volatility and max drawdown** that can be **more moderate** than the **riskier single sleeve** of the pair—though that is **not guaranteed** and can invert in crisis periods.
-- Because proxies are **public**, any “robustness” finding is about **listed credit beta behavior**, not **private fund behavior** under the same labels.
+- **Correlation** between the two proxies was 0.61 over the full period, positive but well below 1.
+- **Blending cut volatility**: the 50/50 mix had 7.0% vs 8.3% for US-only and 7.2% for Europe-only.
+- **It did not improve risk-adjusted return**: US-only had the highest return and Sharpe, and max drawdown barely changed (about 22%).
+- **Stress period**: correlation rose from 0.57 outside Feb-Apr 2020 to 0.67 during it, so the diversification benefit weakened in the Covid sell-off. This is a single episode of about 42 trading days, so it's indicative, not conclusive.
 
 ## Limitations
 
@@ -130,6 +141,4 @@ If you want static images for a CV, PDF, or GitHub-friendly thumbnails, the note
 ---
 
 *Author note: This project is designed as an honest, public-data portfolio construction exercise for recruiting conversations—not as a substitute for proprietary manager research.*
-=======
-# private-credit-portfolio-analysis
->>>>>>> 0a5a372604ad34debf514971ce11491ac53169d1
+
